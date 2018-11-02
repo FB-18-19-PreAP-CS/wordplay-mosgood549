@@ -16,21 +16,22 @@ def at_least():
                     print(word)
                     
 def has_no_e(word):
-    with open("words.txt") as file:
-        for line in file:
-            for letter in word:
-                if 'e' not in word.lower():
-                    return True
-                else:
-                    return False
+    for letter in word:
+        if 'e' not in word.lower():
+            return True
+        else:
+            return False
 def no_e():
+    word_count = 0
+    no_e = 0
     with open("words.txt") as file:
         for line in file:
             for word in line.strip().split():
-                count = 0
-                if has_no_e() == True:
-                    count += 1
-        pass
+                word_count += 1
+                if has_no_e(word) == True:
+                    no_e += 1
+                pct = float(no_e/word_count)
+        print(f"{pct*100:.3f}%")
             
             
         
@@ -50,4 +51,4 @@ def no_e():
 
 if __name__ == "__main__":
     
-    pass
+    no_e()
