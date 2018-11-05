@@ -56,22 +56,36 @@ def count_avoids():
         
         
 def uses_only(word,string):
+    '''
+    returns True if all of the letters in the string are the only letters used in the word
+    
+    >>> uses_only("pig", "igp")
+    True
+    
+    >>> uses_only("africa","jgarf")
+    False
+
+    >>> uses_only("babababa","abc")
+    True
+
+    >>> uses_only("reproachful", "acefhlo")
+    False
+    
+    '''
     for letter in word:
         for ele in string:
-            if ele in word.lower() and letter in ele:
-                return True
-        else:
-            return False
+            if letter not in string and word not in string:
+                return False
+    else:
+        return True
         
 def words_with_only():
-    count_uo = 0
-    string = input("Enter a string of required letters: ")
+    let = input("Enter a string of required letters: ")
     with open("words.txt") as file:
         for line in file:
             for word in line.strip().split():
-                if uses_only(word,string) == True:
-                    count_uo += 1
-        print(count_uo)
+                if uses_only(word,let) == True:
+                    print(word)
                     
     
     
@@ -98,5 +112,6 @@ def words_with_only():
     
 
 if __name__ == "__main__":
-    pass
+    import doctest
+    doctest.testmod()
     #no_e()
