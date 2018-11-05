@@ -52,6 +52,15 @@ def count_avoids():
                 if avoids(line, no_no_letter) == True:
                     count_av += 1
         print(count_av)
+        
+def uses_only(word,string):
+    for letter in word:
+        for ele in string:
+            if ele in word.lower() and letter in ele:
+                return True
+        else:
+            return False
+    
             
                 
     
