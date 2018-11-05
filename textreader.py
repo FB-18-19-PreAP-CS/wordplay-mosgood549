@@ -33,13 +33,15 @@ def no_e():
                 pct = float(no_e/word_count)
         print(f"{pct*100:.3f}%")
         
+        
+        
 def avoids(word, no_no_letters):
     for letter in word:
         for ele in no_no_letters:
             if ele in word.lower():
                 return False
-            else:
-                return True
+        else:
+            return True
             
 def count_avoids():
     count_av = 0
