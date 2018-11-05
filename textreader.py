@@ -53,6 +53,8 @@ def count_avoids():
                     count_av += 1
         print(count_av)
         
+        
+        
 def uses_only(word,string):
     for letter in word:
         for ele in string:
@@ -60,6 +62,18 @@ def uses_only(word,string):
                 return True
         else:
             return False
+        
+def words_with_only():
+    count_uo = 0
+    string = input("Enter a string of required letters: ")
+    with open("words.txt") as file:
+        for line in file:
+            for word in line.strip().split():
+                if uses_only(word,string) == True:
+                    count_uo += 1
+        print(count_uo)
+                    
+    
     
             
                 
